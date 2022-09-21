@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="text">This is JS Refresher</h1>
+    <script>
+        const a = "Hello World";
+        let b = {// b is an object : key value pairs
+            r : 32,
+            s : 64,
+            sum: function (){
+                console.log("Sum of "+this.r+" and "+this.s+" is : "+(this.r+this.s))
+            },
+            print: function (num){
+                console.log("Number is : "+num);
+            }
+        }
+        console.log(a);
+        console.log(b);
+        console.log(b.r);
+        b.sum();
+        b.print(69);
+        document.getElementById("text").addEventListener("click", function (){
+            console.log("clicked!");
+            let conf = confirm("Are you sure?");
+            console.log(conf);
+        })
+    </script>
+</body>
+</html>
