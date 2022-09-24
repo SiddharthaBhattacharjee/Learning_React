@@ -3,8 +3,6 @@ import './App.css';
 
 function App() {
   return (
-    <>
-    <p>I can only return 1 html element, so I wrapped both the elements in a JSX fragment.</p>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -17,12 +15,10 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          I am Learning React, This is my first step :)
+          Learn React
         </a>
       </header>
     </div>
-    </>
-    
   );
 }
 
