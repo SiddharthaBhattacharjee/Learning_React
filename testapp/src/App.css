@@ -3,5 +3,34 @@
   margin: auto;
   font-size: 42px;
   font-weight: 500;
-  margin-top: 45vh;
+  vertical-align: auto;
+}
+
+#container{
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  font-size: 35px;
+  font-weight: 400;
+  border: 2px solid black;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#container input{
+  font-size: 25px;
+  font-weight: 350;
+}
+
+#container button{
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.hidea{
+  display: none;
 }
