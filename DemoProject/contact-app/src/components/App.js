@@ -1,5 +1,6 @@
 
 import './App.css';
+import { uuid } from 'uuidv4';
 import React, { useState, useEffect } from "react";// Usestate React hook will be used to update the contacts 
 import Header from "./Header";
 import AddContact from "./AddContact";
@@ -10,9 +11,17 @@ function App() {
   const [contacts, setContacts] = useState(()=>{
     return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || []
   });
-  const addContactHandler = (contact) => {
-    setContacts([...contacts, contact]);
 
+  const addContactHandler = (contact) => {
+    setContacts([...contacts, {id:Math.floor(Math.random() * 100000000), ... contact}]);
+  }
+
+  const removeContactHandler = (id) => {
+    const newContactList = contacts.filter((contact) => {
+      return contact.id !== id;
+    });
+
+    setContacts(newContactList);
   }
 
   useEffect(()=>{
@@ -23,7 +32,7 @@ function App() {
     <div className='ui container'>
       <Header></Header>
       <AddContact addContactHandler={addContactHandler}></AddContact>{/*This is a handler which helps in passing of data from child to parent i.e. from addcontact to contacts in this place */}
-      <ContactList contacts={contacts}></ContactList>{/* The contacts = {contacts} is a property that will be passed to the actual component from where it is imported*/}
+      <ContactList contacts={contacts} getContactId={removeContactHandler}></ContactList>{/* The contacts = {contacts} is a property that will be passed to the actual component from where it is imported*/}
     </div>
   );
 }
