@@ -45,3 +45,6 @@
 
 5) Local Storage:
     It is a storage to store the data in a users browser locally. Use is demonstrated in App,js
+    
+## Note: 
+    . is used in html tags for preventing md formatting inside of <pre> , . is not there in actual program, refer App.js
