@@ -1,6 +1,5 @@
 
 import './App.css';
-import { uuid } from 'uuidv4';
 import React, { useState, useEffect } from "react";// Usestate React hook will be used to update the contacts 
 import Header from "./Header";
 import AddContact from "./AddContact";
