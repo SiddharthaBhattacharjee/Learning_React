@@ -1,15 +1,24 @@
 
 import './App.css';
-import React, { useState } from "react";// Usestate React hook will be used to update the contacts 
+import React, { useState, useEffect } from "react";// Usestate React hook will be used to update the contacts 
 import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
 
 function App() {
-  const [contacts, setContacts] = useState([]);
+  const LOCAL_STORAGE_KEY = "contacts";
+  const [contacts, setContacts] = useState(()=>{
+    return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || []
+  });
   const addContactHandler = (contact) => {
     setContacts([...contacts, contact]);
+
   }
+
+  useEffect(()=>{
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+  },[contacts]);
+
   return (
     <div className='ui container'>
       <Header></Header>
