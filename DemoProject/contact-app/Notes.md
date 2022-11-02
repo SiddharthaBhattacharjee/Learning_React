@@ -43,5 +43,22 @@
     Here, we have used the Header component in app.js
     Also we can observe the passing of Props here.
 
-5) Local Storage:
+5) ## Local Storage:
     It is a storage to store the data in a users browser locally. Use is demonstrated in App,js
+
+6) ## React Router:
+    It is used to navigate between pages in a single html page in react, different things will be loaded onto the page based on difference in url (making it look like different pages when in reality it is single page)<br>
+    To use React router, we need to install a package called react-router-dom, by using the code:
+    <pre>$ npm install react-router-dom --save</pre>
+    Next we need to import into app.js
+    <pre>import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';</pre>
+
+7) ## Switch in React Router:
+    When assigning path to different components in react, it is needed to select the components correctly.<br>
+    Here, we are assigning path to AddContact as ./add and ContactList as ./ but when we try it without switch, /add loads both the components as ./add also contains ./, to prevent that, switch is used, since ./add comes first, it fits the condition for./add first and only it is loaded, where as if ./ is loaded, ./add is not a match and hence contact list is loaded. Note that if we put contact list first in switch, we will get contact list for both ./ and ./add since both contain ./<br>
+    To minimise the cofusion, we can use a property called exact, which will load the component only if the url exactly matches the path.
+
+
+# Notes:
+
+1) The {} is used in import to import something which is not a default export.

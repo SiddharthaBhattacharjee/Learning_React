@@ -1,6 +1,7 @@
 
 import './App.css';
 import React, { useState, useEffect } from "react";// Usestate React hook will be used to update the contacts 
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // All the router components needed
 import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
@@ -28,10 +29,15 @@ function App() {
   },[contacts]);
 
   return (
-    <div className='ui container'>
-      <Header></Header>
-      <AddContact addContactHandler={addContactHandler}></AddContact>{/*This is a handler which helps in passing of data from child to parent i.e. from addcontact to contacts in this place */}
-      <ContactList contacts={contacts} getContactId={removeContactHandler}></ContactList>{/* The contacts = {contacts} is a property that will be passed to the actual component from where it is imported*/}
+    <div className='ui container' style={{overflowY:'hidden'}}>
+      <Router>
+        <Header></Header>
+        <Routes> {/* check point 7 on notes */}
+          <Route path="/" exact element={<ContactList contacts={contacts} getContactId={removeContactHandler} />}></Route>{/* The contacts = {contacts} is a property that will be passed to the actual component from where it is imported*/}
+          <Route path='/add' element={<AddContact addContactHandler={addContactHandler}/>}></Route> {/*This is a handler which helps in passing of data from child to parent i.e. from addcontact to contacts in this place */}
+        </Routes>
+        
+      </Router>
     </div>
   );
 }
