@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // All
 import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
+import ContactDetails from './ContactDetails';
 
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
@@ -35,8 +36,8 @@ function App() {
         <Routes> {/* check point 7 on notes */}
           <Route path="/" exact element={<ContactList contacts={contacts} getContactId={removeContactHandler} />}></Route>{/* The contacts = {contacts} is a property that will be passed to the actual component from where it is imported*/}
           <Route path='/add' element={<AddContact addContactHandler={addContactHandler}/>}></Route> {/*This is a handler which helps in passing of data from child to parent i.e. from addcontact to contacts in this place */}
+          <Route path="/contact/:id" element={<ContactDetails></ContactDetails>}></Route>
         </Routes>
-        
       </Router>
     </div>
   );

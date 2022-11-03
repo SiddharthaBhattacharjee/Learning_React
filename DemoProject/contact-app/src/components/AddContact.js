@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // for programattic navigations
 import { useState } from "react";
 
 const AddContacts = (props) => {
@@ -13,7 +13,7 @@ const AddContacts = (props) => {
         }
         props.addContactHandler(state);
         setState({name:"",email:""});
-        navigate('/');
+        navigate('/'); // we navigated to home programatically.
     }
     return(
         <div className="ui main" style={{marginTop:50}}>
